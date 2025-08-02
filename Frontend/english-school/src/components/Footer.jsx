@@ -6,7 +6,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#9feabb] text-gray-700 text-center p-4 mt-10">
+    <footer className="bg-[#9feabb] text-gray-700 text-center p-4 ">
       <p className="text-sm">© 2025 Wordflow English School. All rights reserved.</p>
       <p className="text-xs">Follow us on social media!</p>
       <div className="mt-2">

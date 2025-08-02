@@ -1,23 +1,13 @@
+import React from "react";
+import LoginForm from "../components/Auth/LoginForm.jsx";
+
 export default function LoginPage() {
-  return (
-    <div className="p-6 text-2xl text-center">
-      <h1 className="text-5xl font-bold mb-4">Login to Wordflow English School</h1>
-      <form className="space-y-4">
-        <input type="checkbox" />
-        <input
-          type="text"
-          placeholder="Username"
-          className="w-full p-2 border border-gray-300 rounded"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="w-full p-2 border border-gray-300 rounded"
-        />
-        <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-xl">
-          Login
-        </button>
-      </form>
-    </div>
-  );
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-[#f0fdf4] to-[#d9f99d]">
+            <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl">
+                <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Welcome Back</h2>
+                <LoginForm />
+            </div>
+        </div>
+    );
 }

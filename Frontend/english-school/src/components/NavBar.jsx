@@ -1,35 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import defaultAvatarM from '/default-avatar-m.png'; // путь к дефолтному аватару
 
-function Navbar() {
-  return (
-    <nav className="flex justify-between items-center p-4 bg-[#9feabb]">
-      <h1 className="text-2xl font-extrabold">
-        <Link to="/">        
-          <span className="text-green-800">WORD</span>
-          <span className="text-black">FLOW</span>
-        </Link>
-      </h1>
-      <div className="space-x-30 flex justify-end-safe items-end-safe pr-10">
-   
-        <div className="">
-          <Link to="/" className="py-5 text-[#f0f0f0] border-0 hover:font-bold hover:border-b-2 ">Home</Link>
-        </div>
+export default function Navbar() {
+	return (
+		<nav className="flex justify-between items-center p-4 bg-[#9feabb] sticky top-0 z-50">
+			<h1 className="text-2xl font-extrabold">
+				<Link to="/">
+					<span className="text-green-800">WORD</span>
+					<span className="text-black">FLOW</span>
+				</Link>
+			</h1>
 
-        <div className="">
-          <Link to="/courses" className="py-5 text-[#f0f0f0] border-0 hover:font-bold hover:border-b-2 ">Courses</Link>
-        </div>
-   
-        <div className="">
-          <Link to="/contact" className="py-5 text-[#f0f0f0] border-0 hover:font-bold hover:border-b-2 ">Contact</Link>
-        </div>
-        
-        <div className="">
-          <Link to="/login" className="py-5 text-[#f0f0f0] border-0 hover:font-bold hover:border-b-2 ">Login</Link>
-        </div>
-      </div>
-    </nav>
-  );
+			<div className="flex items-center space-x-6 pr-10">
+				<Link
+					to="/"
+					className="py-2 text-black border-0 hover:font-bold hover:border-b-2 transition">
+					Главная
+				</Link>
+
+				{useAuth().user ? (
+					<Link to="/profile">
+						<img
+							src={useAuth().user.avatar || defaultAvatarM}
+							alt="Профиль"
+							className="w-8 h-8 rounded-full object-cover border border-gray-300"
+						/>
+					</Link>
+				) : (
+					<Link
+						to="/login"
+						className="bg-green-600 text-white px-4 py-1 rounded hover:bg-green-700 transition">
+						Войти
+					</Link>
+				)}
+			</div>
+		</nav>
+	);
 }
-
-
-export default Navbar;

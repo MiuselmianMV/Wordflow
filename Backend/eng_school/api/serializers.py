@@ -19,7 +19,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['email', 'role', 'profile']
+        fields = ['email', 'role', 'full_name', 'profile', 'avatar']
 
     def get_profile(self, obj):
         if obj.role == UserRoles.TEACHER and hasattr(obj, 'teacher_profile'):
